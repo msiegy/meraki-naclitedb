@@ -12,7 +12,7 @@ import meraki
     - Create and Populate SQLite3 Database with endpoints
     - Run flask with API endpoints for updating and reading endpoint database.
     - When updating Endpoint API check if endpoint has passed crowdstrike or not and react with meraki GP client update API call for the appropriate group policy.
-
+...
 """
 
 load_dotenv()
