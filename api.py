@@ -188,30 +188,30 @@ def updateclientPolicy(endpoint, policy_id):
 endpoints = []
 endpoint0 = {
     "mac_addresses": "AA240909039F",
-    "name": "DALXR-Printer02",
-    "brand": "Fairfield Inn",
+    "name": "LABR1-Printer02",
+    "brand": "",
     "location_code": "LABR1",
     "crowdstrike": "PASSED"
 }
 
 endpoint1 = {
     "mac_addresses": "BB240909039F",
-    "name": "DALXR-PoS02",
-    "brand": "Fairfield Inn",
+    "name": "LABR1-PoS02",
+    "brand": "SFH",
     "location_code": "LABR1",
     "crowdstrike": ""
 }
 endpoint2 = {
     "mac_addresses": "CC240909039F",
-    "name": "DALXR-GREDOCSIS1",
-    "brand": "Fairfield Inn",
+    "name": "LABR1-GREDOCSIS1",
+    "brand": "MFH",
     "location_code": "LABR1",
     "crowdstrike": "FAILED"
 }
 endpoint3 = {
     "mac_addresses": "b827ebf2d773",
     "name": "FamilyRoom-OSMC-PI",
-    "brand": "Fairfield Inn",
+    "brand": "SFH",
     "location_code": "CABMIL1",
     "crowdstrike": "PASSED"
 }
