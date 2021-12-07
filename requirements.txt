@@ -1,0 +1,4 @@
+meraki==1.15.0
+Flask==2.0.2
+Flask-Cors==3.0.10
+python-dotenv==0.19.2
