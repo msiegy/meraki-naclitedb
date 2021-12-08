@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "8fcd737c-2fd3-41d9-8029-8f43abe783d5",
+		"name": "NAC Lite Meraki",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Meraki Clients",
+			"item": [
+				{
+					"name": "Clients - List the clients of a device, up to 1 month",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": "{{X-Cisco-Meraki-API-Key}}"
+							}
+						],
+						"url": {
+							"raw": "https://dashboard.meraki.com/api/v0/devices/{{serial}}/clients?timespan=84000",
+							"protocol": "https",
+							"host": [
+								"dashboard",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"devices",
+								"{{serial}}",
+								"clients"
+							],
+							"query": [
+								{
+									"key": "timespan",
+									"value": "84000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clients - Return the group policy that is assigned to a device in the network",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": "{{X-Cisco-Meraki-API-Key}}"
+							}
+						],
+						"url": {
+							"raw": "https://dashboard.meraki.com/api/v0/devices/{{serial}}/clients?timespan=84000",
+							"protocol": "https",
+							"host": [
+								"dashboard",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"devices",
+								"{{serial}}",
+								"clients"
+							],
+							"query": [
+								{
+									"key": "timespan",
+									"value": "84000"
+								}
+							]
+						},
+						"description": "```\nHTTP REQUEST\nGET /networks/[networkId]/clients/[client_mac]/policy\nPARAMETERS\ntimespan\nThe timespan for which clients will be fetched. Must be in seconds and less than or equal to a month (2592000 seconds).\nSAMPLE REQUEST\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X GET -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[networkId]/clients/[mac]/policy?timespan=86400'\nSAMPLE RESPONSE\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"type\": \"Group policy\",\n  \"groupPolicyId\": 101\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Clients - Update the group policy assigned to a device in the network",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": "{{X-Cisco-Meraki-API-Key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"devicePolicy\": \"Group policy\",\n  \"groupPolicyId\": 102\n}"
+						},
+						"url": {
+							"raw": "https://api.meraki.com/api/v1/networks/{{networkId}}/clients/{{clientMac}}/policy",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"networks",
+								"{{networkId}}",
+								"clients",
+								"{{clientMac}}",
+								"policy"
+							],
+							"query": [
+								{
+									"key": "timespan",
+									"value": "84000",
+									"disabled": true
+								}
+							]
+						},
+						"description": "```\nHTTP REQUEST\nPUT /networks/[id]/clients/[mac]/policy\nPARAMETERS\ndevicePolicy\nThe group policy (Whitelisted, Blocked, Normal, Group policy)\ngroupPolicyId\n[optional] If devicePolicy param is set to 'group' this param is used to specify the group id.\nSAMPLE REQUEST\ncurl -L -H 'X-Cisco-Meraki-API-Key: <key>' -X PUT -H 'Content-Type: application/json' 'https://dashboard.meraki.com/api/v0/networks/[id]/clients/[mac]/policy'\nSAMPLE RESPONSE\nSuccessful HTTP Status: 200\n{\n  \"mac\": \"00:11:22:33:44:55\",\n  \"type\": \"Group policy\",\n  \"groupPolicyId\": 101\n}\n```"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Flask API",
+			"item": [
+				{
+					"name": "GET Endpoints",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{appurl}}/api/endpoints",
+							"protocol": "http",
+							"host": [
+								"{{appurl}}"
+							],
+							"path": [
+								"api",
+								"endpoints"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Endpoints By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{appurl}}/api/endpoints/1",
+							"protocol": "http",
+							"host": [
+								"{{appurl}}"
+							],
+							"path": [
+								"api",
+								"endpoints",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Endpoint",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mac_addresses\": \"EE240909039F\",\r\n    \"brand\": \"pepsi\",\r\n    \"location_code\": \"labr1\",\r\n    \"crowdstrike\": \"FAILED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{appurl}}/api/endpoints/add",
+							"protocol": "http",
+							"host": [
+								"{{appurl}}"
+							],
+							"path": [
+								"api",
+								"endpoints",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Endpoints By MAC",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{appurl}}/api/endpoints/mac/AA240909039F",
+							"protocol": "http",
+							"host": [
+								"{{appurl}}"
+							],
+							"path": [
+								"api",
+								"endpoints",
+								"mac",
+								"AA240909039F"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Endpoint by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"endpoint_id\": 4,\r\n    \"brand\": \"coke\",\r\n    \"location_code\": \"labr1\",\r\n    \"crowdstrike\": \"FAILED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{appurl}}/api/endpoints/updatebyid",
+							"protocol": "http",
+							"host": [
+								"{{appurl}}"
+							],
+							"path": [
+								"api",
+								"endpoints",
+								"updatebyid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Endpoint by MAC",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mac_addresses\": \"b827ebf2d773\",\r\n    \"brand\": \"CABMI1\",\r\n    \"location_code\": \"Cabells Mill\",\r\n    \"crowdstrike\": \"PASSED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{appurl}}/api/endpoints/updatebymac",
+							"protocol": "http",
+							"host": [
+								"{{appurl}}"
+							],
+							"path": [
+								"api",
+								"endpoints",
+								"updatebymac"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "C!sco123",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "naclite",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://192.168.2.18"
+		}
+	]
+}
