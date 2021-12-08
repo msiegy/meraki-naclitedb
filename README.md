@@ -13,11 +13,10 @@ When an endpoint is updated in the database dynamically via a posture scan or ma
 ### Installation
 - git clone https://github.com/msiegy/meraki-naclitedb.git
 - pip install -r requirements.txt
-- Create a .env file with the following information:
-<br>   MerakiAPIKey=xxxx
-<br>   organizationId=xxxx
-<br>   networkId=xxxx
-- python api.py
+- Remove '.sample' from the .env file and enter the relevent API key information.
+- Start the app and flask server with: python api.py
+
+- The demo application is now running, you can use postman to hit the flask API and update endpoint information in order to trigger policy changes.
 
 ### References
 - https://developer.cisco.com/meraki/api-v1/
