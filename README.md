@@ -11,7 +11,14 @@ When an endpoint is updated in the database dynamically via a posture scan or ma
    <img src=gifs/naclitemeraki.gif width="100%" height="100%">
 
 ### Installation
+- git clone https://github.com/msiegy/meraki-naclitedb.git
+- pip install -r requirements.txt
+- Create a .env file with the following information:
+<br>   MerakiAPIKey=xxxx
+<br>   organizationId=xxxx
+<br>   networkId=xxxx
+- python api.py
 
 ### References
-- API ref
-- swagger
+- https://developer.cisco.com/meraki/api-v1/
+
