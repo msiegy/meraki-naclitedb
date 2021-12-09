@@ -3,7 +3,7 @@ Many Enterprises leverage a combination of off the shelf security tools and home
 
 This app is intended to represent the above scenario. A Simple SQL db has been created with several endpoints. A frontend API gateway using flask was added to handle CRUD operations on endpoints in the database. For example via this API we can manually change posture from trusted to untrusted or allow other security tools to drive these changes dynamically.
 
-When an endpoint is updated in the database dynamically via a posture scan or manually as seen in the demo below, that triggers an API call to the meraki cloud dashboard to change client firewall from Trusted to Untrusted or vice versa.
+When an endpoint is updated in the database dynamically via a posture scan or manually as seen in the demo below, that triggers an API call to the meraki cloud dashboard to change client group policy from Trusted to Untrusted or vice versa.
 
 #### Demo
    Update endpoint status in database and trigger relevant Meraki client Group Policy change.
