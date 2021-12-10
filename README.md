@@ -20,4 +20,4 @@ When an endpoint is updated in the database dynamically via a posture scan or ma
 
 ### References
 - https://developer.cisco.com/meraki/api-v1/
-
+- Don't have a Meraki Dashboard to test with? Reserve a sandbox here: https://devnetsandbox.cisco.com/RM/Topology
