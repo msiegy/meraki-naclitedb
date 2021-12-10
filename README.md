@@ -7,6 +7,7 @@ When an endpoint is updated in the database dynamically via a posture scan or ma
 
 #### Demo
    Update endpoint status in database and trigger relevant Meraki client Group Policy change.
+   <br>Our endpoint starts in Trusted, but after an update from Crowdstrike(postman) we dynamically update the endpoint to Remediate, which enforces stricter ACLs.
     
    <img src=gifs/naclitemeraki.gif width="100%" height="100%">
 
